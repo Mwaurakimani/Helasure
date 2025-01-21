@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="39221ad9-d5b8-4daf-b3e0-75ddfb6936bc" name="http://82.165.200.92/" url="https://helasure.com">
+        <fileTransfer rootFolder="/var/www/vhosts/helasure.com/httpdocs" accessType="SFTP" host="82.165.200.92" port="22" sshConfigId="bb27119d-ea66-4a51-a164-5773da3269b2" sshConfig="root@82.165.200.92:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" isUseRsync="true" isUseSudo="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
