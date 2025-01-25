@@ -7,6 +7,7 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import HomeNavigation from "@/Components/HomeNavigation.vue";
 
 const form = useForm({
     name: '',
@@ -26,8 +27,10 @@ const submit = () => {
 <template>
     <Head title="Register" />
 
+    <HomeNavigation class="mb-[20px] container"/>
+
     <AuthenticationCard>
-        <h1 class="mb-[20px] h2">Log in</h1>
+        <h1 class="mb-[20px] h2">Register</h1>
 
 
         <form @submit.prevent="submit">

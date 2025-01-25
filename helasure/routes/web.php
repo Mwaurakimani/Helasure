@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,3 +22,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         })->name('dashboard');
 
     });
+
+Route::post('/api/messages/sendMessage',[ChatController::class,'sendMessage'])->name('echoMessage');
