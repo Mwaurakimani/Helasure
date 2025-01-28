@@ -1,20 +1,18 @@
-<script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
-import AdminPanel from "@/Partials/AdminPanel.vue";
-</script>
-
 <template>
-    <AppLayout title="Dashboard overflow-auto">
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
-            </h2>
-        </template>
+    <div class="p-6">
+        <h2 class="text-2xl font-bold mb-4">Welcome to the Dashboard</h2>
+        <p>You are logged in!</p>
 
-        <div class="py-12 ">
-            <div class="max-w-7xl  mx-auto sm:px-6 lg:px-8">
-                <AdminPanel/>
-            </div>
-        </div>
-    </AppLayout>
+        <button @click="logout" class="bg-red-500 text-white p-2 mt-4">
+            Logout
+        </button>
+    </div>
 </template>
+
+<script setup>
+import {router} from '@inertiajs/vue3';
+
+const logout = () => {
+    router.post(route('logout'));
+};
+</script>

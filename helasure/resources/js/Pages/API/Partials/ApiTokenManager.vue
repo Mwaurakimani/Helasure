@@ -1,19 +1,20 @@
 <script setup>
-import { ref } from 'vue';
-import { useForm } from '@inertiajs/vue3';
-import ActionMessage from '@/Components/ActionMessage.vue';
-import ActionSection from '@/Components/ActionSection.vue';
-import Checkbox from '@/Components/Checkbox.vue';
-import ConfirmationModal from '@/Components/ConfirmationModal.vue';
-import DangerButton from '@/Components/DangerButton.vue';
-import DialogModal from '@/Components/DialogModal.vue';
-import FormSection from '@/Components/FormSection.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import SectionBorder from '@/Components/SectionBorder.vue';
-import TextInput from '@/Components/TextInput.vue';
+import {ref} from 'vue';
+import {useForm} from '@inertiajs/vue3';
+import FormSection from "@/Components/Compounded/FormSection.vue";
+import InputLabel from "@/Components/Single/InputLabel.vue";
+import TextInput from "@/Components/Single/TextInput.vue";
+import InputError from "@/Components/Single/InputError.vue";
+import Checkbox from "@/Components/Single/Checkbox.vue";
+import ActionMessage from "@/Components/Single/ActionMessage.vue";
+import PrimaryButton from "@/Components/Single/PrimaryButton.vue";
+import SectionBorder from "@/Components/Single/SectionBorder.vue";
+import ActionSection from "@/Components/Compounded/ActionSection.vue";
+import DialogModal from "@/Components/Compounded/DialogModal.vue";
+import SecondaryButton from "@/Components/Single/SecondaryButton.vue";
+import DangerButton from "@/Components/Single/DangerButton.vue";
+import ConfirmationModal from "@/Components/Compounded/ConfirmationModal.vue";
+
 
 const props = defineProps({
     tokens: Array,
@@ -87,7 +88,7 @@ const deleteApiToken = () => {
             <template #form>
                 <!-- Token Name -->
                 <div class="col-span-6 sm:col-span-4">
-                    <InputLabel for="name" value="Name" />
+                    <InputLabel for="name" value="Name"/>
                     <TextInput
                         id="name"
                         v-model="createApiTokenForm.name"
@@ -95,17 +96,17 @@ const deleteApiToken = () => {
                         class="mt-1 block w-full"
                         autofocus
                     />
-                    <InputError :message="createApiTokenForm.errors.name" class="mt-2" />
+                    <InputError :message="createApiTokenForm.errors.name" class="mt-2"/>
                 </div>
 
                 <!-- Token Permissions -->
                 <div v-if="availablePermissions.length > 0" class="col-span-6">
-                    <InputLabel for="permissions" value="Permissions" />
+                    <InputLabel for="permissions" value="Permissions"/>
 
                     <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div v-for="permission in availablePermissions" :key="permission">
                             <label class="flex items-center">
-                                <Checkbox v-model:checked="createApiTokenForm.permissions" :value="permission" />
+                                <Checkbox v-model:checked="createApiTokenForm.permissions" :value="permission"/>
                                 <span class="ms-2 text-sm text-gray-600">{{ permission }}</span>
                             </label>
                         </div>
@@ -125,7 +126,7 @@ const deleteApiToken = () => {
         </FormSection>
 
         <div v-if="tokens.length > 0">
-            <SectionBorder />
+            <SectionBorder/>
 
             <!-- Manage API Tokens -->
             <div class="mt-10 sm:mt-0">
@@ -203,7 +204,7 @@ const deleteApiToken = () => {
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div v-for="permission in availablePermissions" :key="permission">
                         <label class="flex items-center">
-                            <Checkbox v-model:checked="updateApiTokenForm.permissions" :value="permission" />
+                            <Checkbox v-model:checked="updateApiTokenForm.permissions" :value="permission"/>
                             <span class="ms-2 text-sm text-gray-600">{{ permission }}</span>
                         </label>
                     </div>

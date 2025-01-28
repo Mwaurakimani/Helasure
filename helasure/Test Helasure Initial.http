@@ -1,0 +1,25 @@
+### Register a new user
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password",
+    "password_confirmation": "password"
+}
+
+
+### Login user
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+
+{
+    "email": "john@example.com",
+    "password": "password"
+}
+
+### Get authenticated user details
+GET http://127.0.0.1:8000/api/user
+Authorization: Bearer 1|RjElI4tUPVzrUvzq9SxEhSzkUcWFfSYrqTP4Rybv2433be7e
+Accept: application/json
