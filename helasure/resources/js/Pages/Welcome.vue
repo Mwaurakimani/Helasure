@@ -1,60 +1,60 @@
 <script setup>
-import {onMounted, ref} from 'vue';
-import '../echo.js';
-import {isIntervalRunning, setMessages, startInterval, stopInterval} from "@/Acctions/Chat/GUI.js";
+import {Head} from '@inertiajs/vue3';
+import {onMounted} from "vue";
+import {generateBackgroundSquares} from "@/Modules/generateBackgroundSquares.js";
+import HomeNavigation from "@/Components/ApplicationComponents/Home/HomeNavigation.vue";
+import WhyChooseUsComponent from "@/Components/ApplicationComponents/Home/HomePage/WhyChooseUsComponent.vue";
+import HowItWorksComponent from "@/Components/ApplicationComponents/Home/HomePage/HowItWorksComponent.vue";
+import InquiryForm from "@/Components/ApplicationComponents/Home/InquiryForm.vue";
+import Testimonials from "@/Components/ApplicationComponents/Home/Testimonials.vue";
+import Footer from "@/Components/ApplicationComponents/Home/Footer.vue";
+import HomeBanner from "@/Components/ApplicationComponents/Home/HomePage/HomeBanner.vue";
 
-const messages = ref([]); // Reactive array to hold chat messages
-const message = ref('');
-
-const sendMessage = () => {
-
-    axios.post('/api/messages/sendMessage', {
-        message: message.value,
-    })
-        .then(res => messages.value.push())
-        .catch(err => console.log("Error : " + err))
-        .finally(() => message.value = '');
-
-
-    messages.value.push();
-};
+const reviews = [
+    { text: "Helasure made my transactions so much safer and easier!" },
+    { text: "Amazing escrow system with great customer support!" },
+    { text: "Highly recommend for anyone dealing with online payments." }
+];
 
 onMounted(() => {
-    Echo.channel('playground')
-        .listen('.playground', (event) => {
-            messages.value.push(setMessages(event.message));
-        });
-})
+    generateBackgroundSquares();
+});
 </script>
 
 <template>
-    <div class="mb-[20px] p-[20px] shadow-sm h-[500px] container">
-        <!-- Chat Display -->
-        <div class="h-[700px] w-full bg-gray-100 mb-4 overflow-y-auto p-4">
-            <ul class="space-y-4">
-                <li v-for="message in messages" :key="message.id" class="flex items-start gap-2">
-                    <!-- Sender Initial -->
-                    <div class="w-[40px] h-[40px] bg-blue-500 text-white flex items-center justify-center rounded-full font-bold">
-                        {{ message.initial }}
-                    </div>
-                    <!-- Message Bubble -->
-                    <div class="bg-white p-3 rounded-lg shadow-sm">
-                        <p class="text-sm text-gray-800">{{ message.text }}</p>
-                        <span class="text-xs text-gray-500">{{ message.time }}</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="bg-red-400 h-[40px] mb-[20px]">
-            <input v-model="message" class="h-[40px] w-full rounded-sm border border-gray-200">
-        </div>
-        <div class="flex gap-2">
-            <button class="btn btn-primary" @click="sendMessage">send</button>
-            <a class="btn btn-warning text-white block" href="/">Reste Panel</a>
-        </div>
+    <div class="min-h-screen flex flex-col">
+        <Head title="Welcome to Helasure" />
+
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <HomeNavigation class="md:mb-[20px]" />
+
+            <!-- Banner Section -->
+            <HomeBanner/>
+
+            <!-- Why Choose Helasure Section -->
+            <WhyChooseUsComponent/>
+
+            <!-- How It Works Section -->
+            <HowItWorksComponent/>
+
+            <!-- Inquiry Form -->
+            <InquiryForm class="mb-[20px]" />
+
+            <!-- Customer Testimonials -->
+            <Testimonials class="mb-[20px]" :testimonials="reviews" />
+
+            <!-- Call to Action -->
+            <section class="container text-center mb-[20px]">
+                <div class="mx-auto bg-blue-600 text-white p-8 rounded-lg shadow-md">
+                    <h2 class="text-3xl font-bold">Create an Instant Escrow</h2>
+                    <p class="mt-2 text-lg">Get <span class="font-bold text-green-500">20% OFF</span> on your first 10 escrows!</p>
+                    <button class="mt-4 bg-white text-blue-600 px-6 py-3 rounded-md font-semibold">Start Now</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <Footer></Footer>
     </div>
 </template>
-
-<style scoped>
-
-</style>
