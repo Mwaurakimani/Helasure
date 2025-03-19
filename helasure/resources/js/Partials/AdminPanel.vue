@@ -1,7 +1,7 @@
 <script setup>
 
-import SectionBorder from "@/Components/SectionBorder.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
+import SectionBorder from "@/Components/Single/SectionBorder.vue";
+import PrimaryButton from "@/Components/Single/PrimaryButton.vue";
 </script>
 
 <template>
