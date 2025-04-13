@@ -29,8 +29,5 @@
 
         //Wallet
         Route::get('/dashboard/wallet', [TransactionsController::class, 'index'])->name('dashboard.wallet.index');
-
-
-
-
     });
+    //test
