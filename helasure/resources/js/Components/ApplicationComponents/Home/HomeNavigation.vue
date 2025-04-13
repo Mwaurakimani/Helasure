@@ -1,16 +1,14 @@
 <script setup>
-import { ref } from 'vue';
+import {ref} from 'vue';
 import ApplicationLogo from '@/Components/Single/ApplicationLogo.vue';
-import {Link, router} from '@inertiajs/vue3';
-import { usePage } from '@inertiajs/vue3';
-import SectionBorder from "@/Components/Single/SectionBorder.vue";
+import {Link, router, usePage} from '@inertiajs/vue3';
 
 const isOpen = ref(false);
 const user = usePage().props.auth.user;
 </script>
 
 <template>
-    <nav class="fixed top-0 left-0 w-full bg-white shadow-md px-6 py-2 z-50">
+    <nav class="sticky top-0 left-0 w-full bg-white shadow-md px-6 py-2 z-50">
         <div class="container max-w-7xl mx-auto flex justify-between items-center relative">
             <!-- Logo (Left) -->
             <div class="flex items-center">
@@ -71,9 +69,3 @@ const user = usePage().props.auth.user;
     </nav>
 </template>
 
-<style>
-/* Add padding to prevent content from being hidden under the navbar */
-body {
-    padding-top: 60px; /* Adjust based on navbar height */
-}
-</style>

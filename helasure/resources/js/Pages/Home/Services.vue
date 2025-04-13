@@ -1,5 +1,5 @@
 <script setup>
-import { Head } from '@inertiajs/vue3';
+import {Head} from '@inertiajs/vue3';
 import HomeNavigation from "@/Components/ApplicationComponents/Home/HomeNavigation.vue";
 import Footer from "@/Components/ApplicationComponents/Home/Footer.vue";
 import ServiceCard from "@/Components/ApplicationComponents/Common/ServiceCard.vue";
@@ -15,7 +15,8 @@ import ComparisonCard from "@/Components/ApplicationComponents/Common/Comparison
         <HomeNavigation class="md:mb-[20px]" />
 
         <!-- Hero Section -->
-        <section class="w-full container md:rounded mb-[20px] h-40 bg-cover bg-center flex items-center justify-center bg-blue-500">
+      <section
+          class="w-full container md:rounded mb-[20px] bg-cover bg-center flex items-center justify-center bg-blue-500 py-[20px]">
             <div class="p-6 w-full max-w-3xl h-[70%] flex flex-col items-center justify-center rounded text-white text-center">
                 <h1 class="text-4xl md:text-3xl font-bold">Secure Your Transactions with Helasure</h1>
                 <p class="mt-2 text-lg md:text-base">A simple and transparent escrow service to protect your payments.</p>

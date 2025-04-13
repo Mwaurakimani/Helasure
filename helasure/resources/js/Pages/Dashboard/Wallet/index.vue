@@ -82,7 +82,7 @@ onMounted(() => {
     </teleport>
     <div class="px-3 mt-2">
         <section class="flex justify-between items-center">
-            <h2 class="text-2xl font-semibold">All Transactions</h2>
+            <h2 class="text-2xl font-semibold">All Wallet</h2>
             <div class="flex  items-center  gap-2">
                 <button class="p-2 rounded-md border bg-indigo-100 text-indigo-600 hover:bg-indigo-200">
                     <i class="bi bi-funnel"></i>

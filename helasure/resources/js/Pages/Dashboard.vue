@@ -1,6 +1,5 @@
 <script setup>
 import {router} from '@inertiajs/vue3'
-import DashboardHeader from "@/Components/ApplicationComponents/Dashboard/DashboardHeader.vue";
 import DashboardLayout from "@/Layouts/DashboardLayout.vue";
 import StatCard from "@/Components/ApplicationComponents/Dashboard/StatCard.vue";
 import DashboardActionButton from "@/Components/ApplicationComponents/Dashboard/DashboardActionButton.vue";
@@ -33,8 +32,7 @@ const rows = Array(5).fill({
 </script>
 
 <template>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-6 py-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 px-3 py-2 mt-[20px]">
         <StatCard
             v-for="(stat, i) in stats"
             :key="i"
@@ -43,7 +41,7 @@ const rows = Array(5).fill({
         />
     </div>
 
-    <div class="w-full justify-around flex gap-4 mt-4">
+    <div class="w-full justify-around flex gap-4 mt-4 px-3">
         <DashboardActionButton
             v-for="(action, i) in actions"
             :key="i"
@@ -53,7 +51,7 @@ const rows = Array(5).fill({
         />
     </div>
 
-    <section class="mt-10">
+    <section class="mt-10 px-3">
         <div class="flex justify-between items-center mb-2">
             <h2 class="text-xl font-bold">Active Escrows (5)</h2>
             <a href="#" class="text-sm text-blue-600 hover:underline">See all</a>
@@ -61,7 +59,7 @@ const rows = Array(5).fill({
         <DataTable :headers="tableHeaders" :rows="rows"/>
     </section>
 
-    <section class="mt-10">
+    <section class="mt-10 px-3">
         <div class="flex justify-between items-center mb-2">
             <h2 class="text-xl font-bold">Recent Transactions</h2>
             <a href="#" class="text-sm text-blue-600 hover:underline">See all</a>

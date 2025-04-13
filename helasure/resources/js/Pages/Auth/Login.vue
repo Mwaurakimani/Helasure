@@ -1,7 +1,6 @@
 <script setup>
 import {Head, Link, useForm, usePage} from '@inertiajs/vue3';
 import {ref} from 'vue';
-import ApplicationLogo from "@/Components/Single/ApplicationLogo.vue";
 import HomeNavigation from "@/Components/ApplicationComponents/Home/HomeNavigation.vue";
 import Footer from "@/Components/ApplicationComponents/Home/Footer.vue";
 import TextInput from "@/Components/Single/TextInput.vue";
@@ -39,26 +38,27 @@ const submit = () => {
                     </div>
                 </div>
 
-
                 <form @submit.prevent="submit" class="mt-6">
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <TextInput id="email" type="email" v-model="form.email" required
-                                   class="mt-1 w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"/>
+                        <TextInput id="email" type="email" v-model="form.email" required autocomplete="email"
+                                   class="mt-1 w-full px-2 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"/>
                     </div>
 
                     <div class="mt-4">
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                         <TextInput id="password" type="password" v-model="form.password" required
-                                   class="mt-1 w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"/>
+                                   autocomplete="current-password"
+                                   class="mt-1 w-full px-2 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"/>
                     </div>
 
                     <div class="flex justify-between items-center mt-4">
                         <label class="flex items-center text-sm">
                             <Checkbox type="checkbox" v-model="form.remember" class="mr-2"/>
-                            Remember me
+                            <p>Remember me</p>
                         </label>
-                        <Link href="/forgot-password" class="text-blue-500 text-sm hover:underline">Forgot password?</Link>
+                        <Link href="/forgot-password" class="text-blue-500 text-sm hover:underline">Forgot password?
+                        </Link>
                     </div>
 
                     <button type="submit"

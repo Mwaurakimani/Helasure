@@ -1,23 +1,21 @@
 <template>
-    <aside class="hidden md:flex flex-col w-64 h-full bg-blue-900 text-white py-6 px-4 space-y-6">
+    <aside class="hidden md:flex flex-col w-[200px] h-full bg-blue-900 text-white py-2 px-3">
         <!-- User Profile Section -->
-        <div class="p-3">
-            <div class="w-[100px] h-[100px] bg-white rounded-full mb-4 flex items-center justify-center">
-                <i class="bi bi-person-fill text-gray-500 text-[80px]"></i>
+        <div class="p-3 mb-6">
+            <div class="w-[80px] mx-auto h-[80px] bg-white rounded-full mb-2 flex items-center justify-center">
+                <i class="bi bi-person-fill text-gray-500 text-[40px]"></i>
             </div>
-            <Link class="underline" href="/profile">
-                {{ page.props.auth.user.first_name }} {{ page.props.auth.user.last_name }}
+            <Link class="hover:underline block text-center hover:text-white" :href="route('dashboard.profile.index')">
+                {{ username }}
             </Link>
         </div>
 
         <!-- Navigation Items -->
         <div v-for="item in sidebarItems" :key="item.href">
             <Link
-                :href="item.href"
-                class="group flex items-center space-x-2 p-2 rounded transition-all"
-                :class="isActive(item.routes).value
-                    ? 'bg-white text-blue-900 font-semibold'
-                    : 'hover:bg-blue-700 hover:text-white'"
+                :href="route(item.href)"
+                class="group flex items-center space-x-2 p-2 rounded transition-all mb-4"
+                :class="isActive(item.routes).value ? 'bg-white text-blue-900 font-semibold': 'hover:bg-blue-700 hover:text-white'"
             >
                 <i :class="`${item.icon} text-lg`"></i>
                 <span>{{ item.label }}</span>
@@ -28,34 +26,42 @@
 
 <script setup>
 import {Link, usePage} from '@inertiajs/vue3';
-import {computed} from 'vue';
+import {computed, ref, watch} from 'vue';
 
 const page = usePage();
+const username = ref(page.props.auth.user.first_name);
+
+watch(
+    () => page.props.auth.user.first_name,
+    (newVal) => {
+        username.value = newVal;
+    }
+);
 
 const sidebarItems = [
     {
         label: 'Dashboard',
         icon: 'bi bi-grid-fill',
-        href: '/dashboard',
-        routes: ['dashboard'],
-    },
-    {
-        label: 'Transactions',
-        icon: 'bi bi-arrow-left-right',
-        href: '/transactions',
-        routes: ['transactions'],
-    },
-    {
-        label: 'Wallet',
-        icon: 'bi bi-wallet2',
-        href: '/wallet',
-        routes: ['wallet'],
+        href: 'dashboard.index',
+        routes: ['dashboard.index'],
     },
     {
         label: 'Escrows',
         icon: 'bi bi-box',
-        href: '/escrows',
-        routes: ['escrows'],
+        href: 'dashboard.escrows.index',
+        routes: ['dashboard.escrows.index'],
+    },
+    {
+        label: 'Wallet',
+        icon: 'bi bi-wallet2',
+        href: 'dashboard.wallet.index',
+        routes: ['dashboard.wallet.index'],
+    },
+    {
+        label: 'Transactions',
+        icon: 'bi bi-arrow-left-right',
+        href: 'dashboard.transactions.index',
+        routes: ['dashboard.transactions.index'],
     },
 ];
 

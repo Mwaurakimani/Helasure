@@ -34,7 +34,7 @@ onMounted(() => {
              @click="closeTransaction">
             <section class="flex justify-center items-center w-full h-full">
                 <div class="w-[400px] h-[500px] bg-[#3073B5] rounded">
-                    <h1 class="p-[20px] text-white text-2xl underline mb-[10px]">Transaction Details</h1>
+                    <h1 class="p-[20px] text-white text-2xl underline mb-[10px]">Escrow Details</h1>
                     <ul class="px-[20px] text-white text-sm list-display-transactions">
                         <li class="border-b border-b-white flex justify-between items-center">
                             <p>Transaction ID</p>
@@ -82,7 +82,7 @@ onMounted(() => {
     </teleport>
     <div class="px-3 mt-2">
         <section class="flex justify-between items-center">
-            <h2 class="text-2xl font-semibold">All Transactions</h2>
+            <h2 class="text-2xl font-semibold">All Wallet</h2>
             <div class="flex  items-center  gap-2">
                 <button class="p-2 rounded-md border bg-indigo-100 text-indigo-600 hover:bg-indigo-200">
                     <i class="bi bi-funnel"></i>

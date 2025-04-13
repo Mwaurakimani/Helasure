@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EscrowTransaction;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class EscrowController extends Controller
 {
+
+    public function index(): \Inertia\Response
+    {
+        return Inertia::render('Dashboard/Escrows/Index');
+    }
     public function create()
     {
         return Inertia::render('Escrows/Partials/CreateEscrowFlow');

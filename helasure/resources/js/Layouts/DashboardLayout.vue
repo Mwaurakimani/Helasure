@@ -1,7 +1,7 @@
 <template>
     <div class="flex h-[100vh] overflow-hidden">
         <SidebarNav/>
-        <div class="h-[100vh] w-full bg-gray-50 p-4 overflow-auto">
+        <div class="h-[100vh] w-full bg-gray-50 overflow-auto">
             <DashboardHeader/>
             <slot/>
         </div>

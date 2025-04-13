@@ -1,3 +1,7 @@
 a {
     text-decoration: none;
 }
+
+label {
+    @apply text-gray-600;
+}
