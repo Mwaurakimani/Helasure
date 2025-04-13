@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import ApplicationLogo from '@/Components/Single/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
+import {Link, router} from '@inertiajs/vue3';
 import { usePage } from '@inertiajs/vue3';
 import SectionBorder from "@/Components/Single/SectionBorder.vue";
 
@@ -34,7 +34,10 @@ const user = usePage().props.auth.user;
                 </template>
                 <template v-else>
                     <Link href="/dashboard" class="px-4 py-2 bg-green-500 text-white rounded-md text-sm font-semibold hover:bg-green-600 transition">Dashboard</Link>
-                    <Link href="/logout" method="post" class="px-4 py-2 bg-red-500 text-white rounded-md text-sm font-semibold hover:bg-red-600 transition">Logout</Link>
+                    <button @click="router.post(route('logout'))"
+                            class="px-4 py-2 bg-red-500 text-white rounded-md text-sm font-semibold hover:bg-red-600 transition">
+                        Logout
+                    </button>
                 </template>
             </div>
 

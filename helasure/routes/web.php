@@ -1,5 +1,6 @@
 <?php
 
+    use App\Http\Controllers\EscrowController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\AuthController;
@@ -15,7 +16,6 @@ Route::get('/contact-us', fn() => Inertia::render('Home/ContactUs'));
 Route::get('/Terms-0f-service', fn() => Inertia::render('Home/TermsOfService'));
 Route::get('/Privacy-Policy', fn() => Inertia::render('Home/PrivacyPolicy'));
 
-
 Route::get('/login', function () {
     return Inertia::render('Auth/Login');
 })->name('login');
@@ -27,10 +27,7 @@ Route::get('/register', function () {
     return Inertia::render('Auth/Register');
 })->name('register');
 
-Route::post('/register', [AuthController::class, 'register'])->name('register.attempt');
+    Route::post('/register', [AuthController::class, 're    gister'])->name('register.attempt');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-});
+
+    include_once "Dashboard/index.php";

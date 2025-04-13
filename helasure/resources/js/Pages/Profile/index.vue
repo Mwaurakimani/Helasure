@@ -1,18 +1,16 @@
 <script setup>
-import AppLayout from '@/Layouts/DashboardLayout.vue'
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue'
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue'
 import DeleteUserForm from './Partials/DeleteUserForm.vue'
-import {Head} from '@inertiajs/vue3'
+import DashboardLayout from "@/Layouts/DashboardLayout.vue";
 
-defineOptions({layout: AppLayout})
+defineOptions({layout: DashboardLayout})
 </script>
 
 <template>
-    <Head title="Profile"/>
-    <section class="">
+    <div class="space-y-6 py-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <UpdateProfileInformationForm/>
         <UpdatePasswordForm/>
         <DeleteUserForm/>
-    </section>
+    </div>
 </template>
